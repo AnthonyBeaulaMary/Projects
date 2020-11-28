@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body {
+			  font-family: Arial, Helvetica, sans-serif;
+			  margin: 0;
+			}
+			
+			.header {
+			  padding: 50px;
+			  background-color: #3498db;
+			  color: white;
+			}
+			
+			.accordion {
+			  background-color: #eee;
+			  color: #444;
+			  cursor: pointer;
+			  padding: 18px;
+			  width: 100%;
+			  border: none;
+			  text-align: left;
+			  outline: none;
+			  font-size: 15px;
+			  transition: 0.4s;
+			}
+
+			.active, .accordion:hover {
+			  background-color: #ccc; 
+			}
+
+			.panel {
+			  padding: 0 18px;
+			  display: none;
+			  background-color: white;
+			  overflow: hidden;
+			}
+			
+			.openbtn {
+			  font-size: 20px;			 
+			  cursor: pointer;
+			  background-color: #111;
+			  color: white;
+			  padding: 10px 15px;
+			  border: none;
+			}
+
+			.openbtn:hover {
+			  background-color: #444;
+			}
+
+		</style>
+		
+		<script>
+			function back() {
+			window.history.back();
+		}
+		</script>
+	
+	</head>
+	
+	<body>
+	
+		<div class="header">
+			<div>
+				<button align = "left" class="openbtn" onclick="back()"><b><<</b></button>  
+			</div>
+			<h1><center>ABOUT</center></h1>
+		</div>
+
+		<button class="accordion"><h2>MY Products</h2></button>
+		<div class="panel">
+			<p>This displays the products that are registered along their, </p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Product ID</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Product Name</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Description</p>
+		</div>
+
+		<button class="accordion"><h2>Availability</h2></button>
+		<div class="panel">
+			<p>This displays all the products along with their,</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Product ID</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Product Name</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Price</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Quantity</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Threshold</p>
+			<p>&nbsp &nbsp &nbsp &nbsp &nbsp Description</p>
+			<p>You can add new products, delete or modify the existing products.</p>
+		</div>
+
+		<button class="accordion"><h2>Sales Entry</h2></button>
+		<div class="panel">
+			<p>You can add your sales updates here, this maintains your sales history.</p>
+			<p>The availability of the corresponding product is updated automatically based on the sold quantity.</p>
+			<p>You can also export the sales details to an excel file for further use.</p>
+		</div>
+
+		<button class="accordion"><h2>Purchase Entry</h2></button>
+		<div class="panel">
+			<p>You can add your purchase updates here, this maintains your purchase history.</p>
+			<p>The availability of the corresponding product is updated automatically based on purchased quantity.</p>
+			<p>You can also export the purchase details to an excel file for further use.</p>
+		</div>
+		
+		<button class="accordion"><h2>Notification of Low Stock</h2></button>
+		<div class="panel">
+			<p>If any product drops below the threshold limit that you have given, then</p>
+			<p>you will be notified through an email.</p>
+		</div>
+
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+			  acc[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var panel = this.nextElementSibling;
+				if (panel.style.display === "block") {
+				  panel.style.display = "none";
+				} else {
+				  panel.style.display = "block";
+				}
+			  });
+			}
+		</script>
+
+	</body>
+</html>
